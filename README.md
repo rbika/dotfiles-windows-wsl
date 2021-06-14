@@ -4,24 +4,13 @@ Here are the steps I follow to set up a new Windows + WSL machine (Windows 10 + 
 
 ## Windows Config
 
-### Tools
+### Disable Office shortcut
 
-- [Scoop](https://scoop-docs.vercel.app/docs/) - Package manager for Windows
+Open the Powershell and run:
 
-### Apps
-
-- Google Chrome
-- VSCode
-- Fork (WIP)
-- Spotify
-- Telegram
-- WhatsApp
-- Notion
-- Microsoft Todo
-- Files
-- Power Toys
-- Quick Look
-- AutoHotKey
+```
+REG ADD HKCU\Software\Classes\ms-officeapp\Shell\Open\Command /t REG_SZ /d rundll32
+```
 
 ### Invert mouse scroll
 
@@ -31,37 +20,26 @@ Open the Powershell as admin, run the command below and restart:
 Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0 | ForEach-Object { Set-ItemProperty $_.PSPath FlipFlopWheel 1 }
 ```
 
-### Disable Office shortcut
+### Apps
 
-Open the Powershell
-
-```
-REG ADD HKCU\Software\Classes\ms-officeapp\Shell\Open\Command /t REG_SZ /d rundll32
-```
+- Google Chrome
+- VSCode
+- (SKIP) Fork
+- Spotify
+- Telegram
+- WhatsApp
+- Notion
+- Microsoft Todo
+- Power Toys
+- Quick Look
+- AutoHotKey
+- Windows Terminal
 
 ### WSL
 
 [Install Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 ## Linux Config
-
-### Zsh
-
-Install zsh and set it as the default shell:
-
-```
-sudo apt install zsh
-```
-
-```
-chsh -s /usr/bin/zsh
-```
-
-### Tools
-
-- [antigen](https://github.com/zsh-users/antigen) - Zsh plugin manager
-- [nvm](https://github.com/creationix/nvm#installation-and-update) - Node Version Manager
-- [wslgit](https://github.com/andy-5/wslgit) - Git integration with WSL (WIP)
 
 ### Config files and scripts
 
@@ -91,6 +69,26 @@ chsh -s /usr/bin/zsh
   ln -s $(pwd)/.vimrc ~/.vimrc
   ```
 
-## TODO
+- Copy main.ahk to Windows' startup folder:
 
-https://stackoverflow.com/questions/60269422/ windows10-wsl2-ubuntu-debian-apt-get-update-failed-no-network
+  ```
+  cp main.ahk /mnt/c/Users/<USERNAME>/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/
+  ```
+
+### Zsh
+
+Install zsh and set it as the default shell:
+
+```
+sudo apt install -y zsh
+```
+
+```
+chsh -s /usr/bin/zsh
+```
+
+### Tools
+
+- [antigen](https://github.com/zsh-users/antigen) - Zsh plugin manager
+- [nvm](https://github.com/creationix/nvm#installation-and-update) - Node Version Manager
+- (SKIP) [wslgit](https://github.com/andy-5/wslgit) - Git integration with WSL
