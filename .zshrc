@@ -68,9 +68,7 @@ alias grep="grep -n --color=auto"
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 # alias gitg='fork'
-
-# alias pbcopy='xclip -selection clipboard'
-# alias pbpaste='xclip -selection clipboard -o'
+alias cdw='cd /mnt/c/Users/rbika'
 
 # Functions
 # ---------
@@ -83,9 +81,9 @@ function mkcd() {
 # Opens a given directory or current one if no args are passed
 function op() {
     if [ $# -eq 0 ]; then
-        open .;
+        explorer.exe .;
     else
-        open $1;
+        explorer.exe $1;
 fi;
 }
 
