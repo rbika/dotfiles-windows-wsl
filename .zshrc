@@ -9,7 +9,9 @@ antigen apply
 # ------
 
 source ~/.git-prompt.sh
-setopt PROMPT_SUBST; PS1='%F{blue}%~%f%F{cyan}$(__git_ps1 " (%s)")%f '
+setopt prompt_subst
+PROMPT='%F{green}%~%f%F{cyan}$(__git_ps1 " (%s)")%f '
+RPROMPT='%F{black}%B%*%b%f'
 
 # Completion
 # ----------
@@ -74,8 +76,8 @@ alias cdw='cd /mnt/c/Users/rbika'
 # ---------
 
 # Creates a new directory and enters it
-function mkcd() { 
-    mkdir $1; cd $1; 
+function mkcd() {
+    mkdir $1; cd $1;
 }
 
 # Opens a given directory or current one if no args are passed
