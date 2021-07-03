@@ -37,8 +37,14 @@ Capslock::RCtrl
 
 ; If 'LAlt' is pressed, tab will send 'LCtrl up' to counter the 'LCtrl::LAlt' mapping
 #If GetKeyState("LAlt", "P")
+; Window switch
 Tab::Send {LCtrl up}{Alt down}{Tab}
+
+; Reverve window switch
 `::Send {LCtrl up}{Alt down}{Shift down}{Tab}{Shift up}
+
+; Reverts to Ctrl behavior when window switch is closed
+Esc::Send {LAlt up}{LCtrl down}
 #If
 
 ; Since 'LAlt up' sends 'LCtrl up' we need it to also send 'Alt up' to get rid of the AltTab menu.
