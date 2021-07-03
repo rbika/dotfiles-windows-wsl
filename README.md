@@ -72,7 +72,7 @@ Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters 
 - Copy main.ahk to Windows' startup folder:
 
   ```
-  cp main.ahk /mnt/c/Users/<USERNAME>/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/
+  cp main.ahk $(wslpath "$(wslvar USERPROFILE)")/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/
   ```
 
 ### Zsh
