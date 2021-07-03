@@ -70,7 +70,11 @@ alias grep="grep -n --color=auto"
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 # alias gitg='fork'
-alias cdw='cd /mnt/c/Users/rbika'
+alias cdw='cd $(wslpath "$(wslvar USERPROFILE)")'
+alias nv='node -v'
+alias ns='npm start'
+alias nt='npm test'
+alias ni='npm install'
 
 # Functions
 # ---------
