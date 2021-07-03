@@ -10,14 +10,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; Docs:
 ; https://autohotkey.com/docs/Hotkeys.htm
 ; https://autohotkey.com/docs/KeyList.htm
-; 
+;
 ; ! = ALT
 ; ^ = CTRL
 ; + = SHIFT
 ; # = WIN
 
 ; -----------------------------------------------
-; General mappings 
+; General mappings
 ; -----------------------------------------------
 
 ; Swap Left Alt and Left Control
@@ -83,8 +83,13 @@ BS::Send {LShift down}{Home}{BS}{LShift Up}
 #If
 
 ; -----------------------------------------------
-; Window positioning
+; Testing
 ; -----------------------------------------------
 
+; Window positioning
 #^=::WinMaximize, A
 #^-::WinRestore, A
+
+; Workspace navigation
+#1::Send {LWin Down}{ctrl down}{left}{ctrl up}{LWin Up}
+#2::Send {LWin Down}{ctrl down}{right}{ctrl up}{LWin Up}
