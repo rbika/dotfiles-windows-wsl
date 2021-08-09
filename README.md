@@ -4,14 +4,6 @@ Here are the steps I follow to set up a new Windows + WSL machine (Windows 10 + 
 
 ## Windows Config
 
-### Disable Office shortcut
-
-Open the Powershell and run:
-
-```
-REG ADD HKCU\Software\Classes\ms-officeapp\Shell\Open\Command /t REG_SZ /d rundll32
-```
-
 ### Invert mouse scroll
 
 Open the Powershell as admin, run the command below and restart:
@@ -20,18 +12,19 @@ Open the Powershell as admin, run the command below and restart:
 Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0 | ForEach-Object { Set-ItemProperty $_.PSPath FlipFlopWheel 1 }
 ```
 
-### Apps
+### Install Apps
 
 - Google Chrome
 - VSCode
-- (SKIP) Fork
+- Fork
+- Docker Desktop
+- Figma
 - Spotify
 - Telegram
 - WhatsApp
 - Notion
 - Microsoft Todo
 - Power Toys
-- Quick Look
 - AutoHotKey
 - Windows Terminal
 
@@ -91,4 +84,4 @@ chsh -s /usr/bin/zsh
 
 - [antigen](https://github.com/zsh-users/antigen) - Zsh plugin manager
 - [nvm](https://github.com/creationix/nvm#installation-and-update) - Node Version Manager
-- (SKIP) [wslgit](https://github.com/andy-5/wslgit) - Git integration with WSL
+- [wslgit](https://github.com/andy-5/wslgit) - Git integration with WSL
