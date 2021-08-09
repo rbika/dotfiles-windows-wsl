@@ -69,7 +69,7 @@ alias path="echo -e $PATH | tr ':' '\n'"
 alias grep="grep -n --color=auto"
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-# alias gitg='fork'
+alias gitg='/mnt/c/Windows/System32/cmd.exe /c "%USERPROFILE%\\AppData\Local\Fork\Fork.exe "$(wslpath -w -a .)'
 alias cdw='cd $(wslpath "$(wslvar USERPROFILE)")'
 alias nv='node -v'
 alias ns='npm start'
