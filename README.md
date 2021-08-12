@@ -60,6 +60,7 @@ Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters 
   ln -s $(pwd)/.zshrc ~/.zshrc
   ln -s $(pwd)/.gitconfig ~/.gitconfig
   ln -s $(pwd)/.vimrc ~/.vimrc
+  ln -s $(pwd)/.vim ~/.vim
   ```
 
 - Copy main.ahk to Windows' startup folder:
