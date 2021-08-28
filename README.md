@@ -85,4 +85,3 @@ chsh -s /usr/bin/zsh
 
 - [antigen](https://github.com/zsh-users/antigen) - Zsh plugin manager
 - [nvm](https://github.com/creationix/nvm#installation-and-update) - Node Version Manager
-- [wslgit](https://github.com/andy-5/wslgit) - Git integration with WSL
