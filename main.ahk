@@ -44,7 +44,7 @@ Tab::Send {LCtrl up}{Alt down}{Tab}
 `::Send {LCtrl up}{Alt down}{Shift down}{Tab}{Shift up}
 
 ; Reverts to Ctrl behavior when window switch is closed
-Esc::Send {LAlt up}{LCtrl down}
+Esc::Send {Esc}{LAlt up}{LCtrl down}
 #If
 
 ; Since 'LAlt up' sends 'LCtrl up' we need it to also send 'Alt up' to get rid of the AltTab menu.
@@ -57,8 +57,8 @@ LAlt up::Send {Alt up}{Ctrl up}
 
 ; Mappings with Alt key
 #If GetKeyState("LAlt", "P")
-Left::Send {Home}
-Right::Send {End}
+Left::Send {left}{Home}
+Right::Send {right}{End}
 Up::Send {Lctrl down}{Home}{Lctrl up}
 Down::Send {Lctrl down}{End}{Lctrl up}
 +Left::Send {shift down}{Home}{shift up}
@@ -80,21 +80,19 @@ BS::Send {LShift down}{Home}{BS}{LShift Up}
 ; Screenshots
 ; -----------------------------------------------
 
-#If GetKeyState("LAlt", "P")
 ; Entire screen with Alt + Shift + 3
-+3::Send #{PrintScreen}
+^+3::Send #{PrintScreen}
 
 ; Portion screen with Alt + Shift + 4
-+4::Send #{S}
-#If
+^+4::Send #{S}
 
 ; -----------------------------------------------
 ; Testing
 ; -----------------------------------------------
 
 ; Window positioning
-#^=::WinMaximize, A
-#^-::WinRestore, A
+^+=::WinMaximize, A
+^+-::WinRestore, A
 
 ; Workspace navigation
 #1::Send {LWin Down}{ctrl down}{left}{ctrl up}{LWin Up}
