@@ -20,7 +20,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; General mappings
 ; -----------------------------------------------
 
-; Swap Left Alt and Left Control
+; Swaps Left Alt and Left Control
 LAlt::LCtrl
 LCtrl::LAlt
 
@@ -30,9 +30,22 @@ Capslock::RCtrl
 ; Kills app
 !q::!F4
 
+; Window positioning
+^+=::WinMaximize, A
+^+-::WinRestore, A
+
+; Workspace navigation
+#1::Send {LWin Down}{ctrl down}{left}{ctrl up}{LWin Up}
+#2::Send {LWin Down}{ctrl down}{right}{ctrl up}{LWin Up}
+
+; Chrome's inspector
+^#i::Send ^+i
+
+; Opens Windows search
+^Space::Send #s
 
 ; -----------------------------------------------
-; Windows switch (Keep Alt + Tab behavior)
+; Window switch (Keep Alt + Tab behavior)
 ; -----------------------------------------------
 
 ; If 'LAlt' is pressed, tab will send 'LCtrl up' to counter the 'LCtrl::LAlt' mapping
@@ -41,7 +54,8 @@ Capslock::RCtrl
 Tab::Send {LCtrl up}{Alt down}{Tab}
 
 ; Reverve window switch
-`::Send {LCtrl up}{Alt down}{Shift down}{Tab}{Shift up}
+`::Send {LCtrl up}{Alt down}{Shift down}{Tab}{Shift up} ; en-US keyboard
+'::Send {LCtrl up}{Alt down}{Shift down}{Tab}{Shift up} ; pt-BR keyboard
 
 ; Reverts to Ctrl behavior when window switch is closed
 Esc::Send {Esc}{LAlt up}{LCtrl down}
@@ -59,8 +73,8 @@ LAlt up::Send {Alt up}{Ctrl up}
 #If GetKeyState("LAlt", "P")
 Left::Send {left}{Home}
 Right::Send {right}{End}
-Up::Send {Lctrl down}{Home}{Lctrl up}
-Down::Send {Lctrl down}{End}{Lctrl up}
+Up::Send {up}{Lctrl down}{Home}{Lctrl up}
+Down::Send {down}{Lctrl down}{End}{Lctrl up}
 +Left::Send {shift down}{Home}{shift up}
 +Right::Send {shift down}{End}{shift up}
 +Up::Send {Ctrl Down}{shift down}{Home}{shift up}{Ctrl Up}
@@ -84,16 +98,10 @@ BS::Send {LShift down}{Home}{BS}{LShift Up}
 ^+3::Send #{PrintScreen}
 
 ; Portion screen with Alt + Shift + 4
-^+4::Send #{S}
+^+4::Send #+s
 
 ; -----------------------------------------------
 ; Testing
 ; -----------------------------------------------
-
-; Window positioning
-^+=::WinMaximize, A
-^+-::WinRestore, A
-
-; Workspace navigation
-#1::Send {LWin Down}{ctrl down}{left}{ctrl up}{LWin Up}
-#2::Send {LWin Down}{ctrl down}{right}{ctrl up}{LWin Up}
+; script to validate hotkeys
+; <hotkey>::Send It works
