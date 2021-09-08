@@ -28,7 +28,7 @@ LCtrl::LAlt
 Capslock::RCtrl
 
 ; Kills app
-!q::!F4
+^q::Send {Alt down}{F4}{Alt up}
 
 ; Window positioning
 ^+=::WinMaximize, A
@@ -41,8 +41,10 @@ Capslock::RCtrl
 ; Chrome's inspector
 ^#i::Send ^+i
 
-; Opens Windows search
-^Space::Send #s
+; Opens spotlight
+#If GetKeyState("LAlt", "P")
+Space::Send {LCtrl up}{LWin Down}{s}{LWin Up}
+#If
 
 ; -----------------------------------------------
 ; Window switch (Keep Alt + Tab behavior)
