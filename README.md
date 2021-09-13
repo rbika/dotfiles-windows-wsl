@@ -12,6 +12,10 @@ Open the Powershell as admin, run the command below and restart:
 Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0 | ForEach-Object { Set-ItemProperty $_.PSPath FlipFlopWheel 1 }
 ```
 
+### Disable keyboard language shortcut
+
+TODO
+
 ### Install Apps
 
 - Google Chrome
@@ -27,6 +31,7 @@ Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters 
 - Power Toys
 - AutoHotKey
 - Windows Terminal
+- Lightshot
 
 ### WSL
 
