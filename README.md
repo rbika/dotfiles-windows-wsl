@@ -11,7 +11,7 @@ Open the Powershell as admin and run (restart needed):
 wsl --install
 ```
 
-For more details see: [Install Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+For more details see [Install Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 
 ### Config files and scripts
@@ -82,12 +82,12 @@ TODO
 
 ### Winget
 
-Install winget package manager from the Microsoft Store
+Install winget package manager from the Microsoft Store.
 
 ### Install Apps
 
 ```
-winget import -i ...
+winget import -i path/to/winget.json
 ```
 
 ### In Progress
