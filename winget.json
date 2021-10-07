@@ -1,0 +1,48 @@
+{
+    "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+    "Sources": [
+      {
+        "Packages": [
+          {
+            "PackageIdentifier": "Lexikos.AutoHotkey"
+          },
+          {
+            "PackageIdentifier": "Docker.DockerDesktop"
+          },
+          {
+            "PackageIdentifier": "Figma.Figma"
+          },
+          {
+            "PackageIdentifier": "Fork.Fork"
+          },
+          {
+            "PackageIdentifier": "Google.Chrome"
+          },
+          {
+            "PackageIdentifier": "Mozilla.Firefox"
+          },
+          {
+            "PackageIdentifier": "Spotify.Spotify"
+          },
+          {
+            "PackageIdentifier": "WhatsApp.WhatsApp"
+          },
+          {
+            "PackageIdentifier": "Notion.Notion"
+          },
+          {
+            "PackageIdentifier": "Telegram.TelegramDesktop"
+          },
+          {
+            "PackageIdentifier": "Microsoft.VisualStudioCode"
+          }
+        ],
+        "SourceDetails": {
+          "Name": "winget",
+          "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+          "Argument": "https://winget.azureedge.net/cache",
+          "Type": "Microsoft.PreIndexed.Package"
+        }
+      }
+    ]
+  }
