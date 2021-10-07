@@ -1,43 +1,18 @@
 # Development Environment Setup (Windows + WSL)
 
-Here are the steps I follow to set up a new Windows + WSL machine (Windows 10 + Ubuntu 20.04 updated).
+Here are the steps I follow to set up a new Windows + WSL machine.  
+Updated for **Windows 11** and **Ubuntu 20.04**.
 
-## Windows Config
+## Linux config
 
-### Invert mouse scroll
-
-Open the Powershell as admin, run the command below and restart:
+Open the Powershell as admin and run (restart needed):
 
 ```
-Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0 | ForEach-Object { Set-ItemProperty $_.PSPath FlipFlopWheel 1 }
+wsl --install
 ```
 
-### Disable keyboard language shortcut
+For more details see: [Install Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
-TODO
-
-### Install Apps
-
-- Google Chrome
-- VSCode
-- Fork
-- Docker Desktop
-- Figma
-- Spotify
-- Telegram
-- WhatsApp
-- Notion
-- Microsoft Todo
-- Power Toys
-- AutoHotKey
-- Windows Terminal
-- Lightshot
-
-### WSL
-
-[Install Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-
-## Linux Config
 
 ### Config files and scripts
 
@@ -90,3 +65,33 @@ chsh -s /usr/bin/zsh
 
 - [antigen](https://github.com/zsh-users/antigen) - Zsh plugin manager
 - [nvm](https://github.com/creationix/nvm#installation-and-update) - Node Version Manager
+
+## Windows config
+
+### Invert mouse scroll
+
+Open the Powershell as admin and run (restart needed):
+
+```
+Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0 | ForEach-Object { Set-ItemProperty $_.PSPath FlipFlopWheel 1 }
+```
+
+### Disable keyboard language shortcut
+
+TODO
+
+### Winget
+
+Install winget package manager from the Microsoft Store
+
+### Install Apps
+
+```
+winget import -i ...
+```
+
+### In Progress
+
+- Microsoft Todo
+- Power Toys
+- Lightshot
