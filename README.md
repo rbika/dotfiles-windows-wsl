@@ -80,6 +80,10 @@ Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters 
 
 TODO
 
+### Install Fira Code Font
+
+https://github.com/tonsky/FiraCode
+
 ### Winget
 
 Install winget package manager from the Microsoft Store.
