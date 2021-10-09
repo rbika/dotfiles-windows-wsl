@@ -43,7 +43,7 @@ For more details see [Install Windows Subsystem for Linux](https://docs.microsof
   ln -s $(pwd)/.vim ~/.vim
   ```
 
-- Copy main.ahk to Windows' startup folder:
+- Copy main.ahk to Windows' startup folder (make sure to save the file as "UTF-8 with BOM"):
 
   ```
   cp main.ahk $(wslpath "$(wslvar USERPROFILE)")/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/
