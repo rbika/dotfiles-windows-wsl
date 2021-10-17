@@ -1,6 +1,9 @@
 ; ===============================================
 ; OSX like keyboard mappings for Windows
 ; ===============================================
+;
+; https://www.autohotkey.com/docs/AutoHotkey.htm
+;
 
 #NoEnv
 #SingleInstance, force 
@@ -34,7 +37,9 @@ Capslock::RCtrl
 #2::Send #^{right}
 
 ; Opens spotlight
-^Space::Send {LCtrl up}#s
+#if GetKeyState("LAlt", "P")
+  Space::Send {LCtrl up}#s
+#if
 
 ; -----------------------------------------------
 ; Window switch (Keep Alt + Tab behavior)
@@ -44,11 +49,23 @@ Capslock::RCtrl
 ; mapping
 #if GetKeyState("LAlt", "P")
   ; Window switch
-  Tab::Send {LCtrl up}{Alt down}{Tab}
+  Tab::
+  altTabActive := true
+  Send {LCtrl up}{Alt down}{Tab}
+  return
 
   ; Reverve window switch
-  `::Send {LCtrl up}{Alt down}{Shift down}{Tab}{Shift up} ; en-US keyboard
-  '::Send {LCtrl up}{Alt down}{Shift down}{Tab}{Shift up} ; pt-BR keyboard
+  `:: ; en-US keyboard
+  ':: ; pt-BR keyboard
+  if (altTabActive = true) {
+    Send {LCtrl up}{Alt down}{Shift down}{Tab}{Shift up}
+    return
+  } else {
+    WinGet, activeProcess, ProcessName, A
+    WinGet, winList, List, ahk_exe %activeProcess%
+    WinActivate, % "ahk_id " winList%winList%
+    return
+  }
 
   ; Reverts to Ctrl behavior when window switch is closed
   Esc::Send {Esc}{LAlt up}{LCtrl down}
@@ -56,7 +73,10 @@ Capslock::RCtrl
 
 ; Since 'LAlt up' sends 'LCtrl up' we need it to also send 'Alt up' to get rid
 ; of the AltTab menu
-LAlt up::Send {Alt up}{Ctrl up}
+LAlt up::
+altTabActive := false
+Send {Alt up}{Ctrl up}
+return
 
 ; -----------------------------------------------
 ; Text navigation, selection and manipulation
