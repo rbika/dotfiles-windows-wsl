@@ -49,6 +49,12 @@ For more details see [Install Windows Subsystem for Linux](https://docs.microsof
   cp main.ahk $(wslpath "$(wslvar USERPROFILE)")/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup/
   ```
 
+- Copy winget.json to Windows' home folder:
+
+  ```
+  cp winget.json $(wslpath "$(wslvar USERPROFILE)")
+  ```
+
 ### Zsh
 
 Install zsh and set it as the default shell:
@@ -63,7 +69,7 @@ chsh -s /usr/bin/zsh
 
 ### Tools
 
-- [antigen](https://github.com/zsh-users/antigen) - Zsh plugin manager
+- [antigen](https://github.com/zsh-users/antigen) - Zsh plugin manager (save script to `~/.antigen.sh`)
 - [nvm](https://github.com/creationix/nvm#installation-and-update) - Node Version Manager
 
 ## Windows config
@@ -78,11 +84,11 @@ Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters 
 
 ### Disable keyboard language shortcut
 
-TODO
+Settings → Time and Language → Typings → Advanced keyboard settings → Input language hot keys
 
-### Install Fira Code Font
+### Install Fira Mono Font
 
-https://github.com/tonsky/FiraCode
+https://fonts.google.com/specimen/Fira+Mono
 
 ### Winget
 
@@ -90,12 +96,12 @@ Install winget package manager from the Microsoft Store.
 
 ### Install Apps
 
+In Powershell run:
 ```
-winget import -i path/to/winget.json
+winget import -i winget.json
 ```
 
 ### In Progress
 
-- Microsoft Todo
 - Power Toys
 - Lightshot
