@@ -13,7 +13,6 @@ wsl --install
 
 For more details see [Install Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-
 ### Config files and scripts
 
 - Clone this repo:
@@ -101,7 +100,10 @@ In Powershell run:
 winget import -i winget.json
 ```
 
+Some apps cannot be installed via winget/store:
+
+- [Lightshot](https://app.prntscr.com/en/index.html)
+
 ### In Progress
 
 - Power Toys
-- Lightshot
