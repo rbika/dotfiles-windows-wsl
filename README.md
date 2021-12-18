@@ -13,18 +13,25 @@ wsl --install
 
 For more details see [Install Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
+### SSH key
+
+```
+ssh-keygen -t ed25519 -C "rbmbika@gmail.com"
+ssh-add ~/.ssh/id_ed25519
+```
+
 ### Config files and scripts
 
 - Clone this repo:
 
   ```
-  git clone git@github.com:rbika/dotfiles-windows-wsl.git ~/.dotfiles
+  git clone git@github.com:rbika/dotfiles-windows-wsl.git dotfiles
   ```
 
 - Change directory
 
   ```
-  cd ~/.dotfiles
+  cd ~/dotfiles
   ```
 
 - Download git-prompt script:
@@ -60,9 +67,6 @@ Install zsh and set it as the default shell:
 
 ```
 sudo apt install -y zsh
-```
-
-```
 chsh -s /usr/bin/zsh
 ```
 
