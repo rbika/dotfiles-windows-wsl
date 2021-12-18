@@ -1,13 +1,14 @@
 # Antigen
 # -------
 
-source "$HOME/.antigen.zsh"
-antigen bundle zsh-users/zsh-completions
-antigen apply
+# source "$HOME/.antigen.zsh"
+# antigen bundle zsh-users/zsh-completions
+# antigen apply
 
 # Prompt
 # ------
 
+# Reference: http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
 source ~/.git-prompt.sh
 setopt prompt_subst
 PROMPT='%F{green}%~%f%F{cyan}$(__git_ps1 " (%s)")%f '
@@ -16,17 +17,8 @@ RPROMPT='%F{black}%B%*%b%f'
 # Completion
 # ----------
 
-setopt auto_menu
-setopt always_to_end
-setopt complete_in_word
-unsetopt flow_control
-unsetopt menu_complete
-zstyle ':completion:*:*:*:*:*' menu select
+# Case insensitive and fuzzy tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
-zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 
 # History
 # -------
@@ -36,7 +28,7 @@ HISTDUP=erase
 # setopt incappendhistory
 
 # history file
-HISTFILE=~/.zsh_history
+HISTFILE=~/.zsh-history
 
 # history length
 HISTSIZE=1000
@@ -53,6 +45,32 @@ HISTCONTROL=ignoreboth
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Keybidings
+# ----------
+
+bindkey -e
+
+# Home key
+bindkey '^[[7~' beginning-of-line                               
+bindkey '^[[H' beginning-of-line
+
+# End key
+bindkey '^[[8~' end-of-line
+bindkey '^[[F' end-of-line
+
+# Navigate words with ctrl+arrow keys
+bindkey '^[Oc' forward-word                                     
+bindkey '^[Od' backward-word                                    
+bindkey '^[[1;5D' backward-word                                 
+bindkey '^[[1;5C' forward-word     
+
+# delete previous word with ctrl+backspace                     
+bindkey '^H' backward-kill-word       
+
+# Shift+tab undo last action
+bindkey '^[[Z' undo                                
 
 # Aliases
 # -------
@@ -67,14 +85,8 @@ alias mv="mv -i"
 alias mk="mkdir -p"
 alias path="echo -e $PATH | tr ':' '\n'"
 alias grep="grep -n --color=auto"
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias cdw='cd $(wslpath "$(wslvar USERPROFILE)")'
-alias nv='node -v'
-alias nr='npm run'
-alias ns='npm start'
-alias nt='npm test'
-alias ni='npm install'
+
+export winhome=$(wslpath "$(wslvar USERPROFILE)")
 
 # Functions
 # ---------
@@ -93,11 +105,24 @@ function op() {
 fi;
 }
 
+# Extras
+# ------
+
+# Color man pages
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'
+export LESS=-R
+
 # Local config
 # ------------
 
-if [ -f ~/.dotfiles/.local-zshrc ]; then
-    source ~/.dotfiles/.local-zshrc
+if [ -f ~/.local-zshrc ]; then
+    source ~/.local-zshrc
 fi
 
 # References
